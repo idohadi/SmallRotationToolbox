@@ -17,8 +17,8 @@
   */
 
 #include <stdint.h>
-#include "../c/rotation_grid.h"
-#include "../extern/SFMT-1.5.1/SFMT.h"
+#include "rotation_grid.h"
+#include "SFMT.h"
 #include "mex.h"
 
 double initial_rotations_grid[288];

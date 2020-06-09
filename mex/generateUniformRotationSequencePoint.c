@@ -16,8 +16,8 @@
  *  (2) The sequence indices begin from 0.
   */
 
-#include "../c/rotation_grid.h"
-#include "../c/utility_functions.h"
+#include "rotation_grid.h"
+#include "utility_functions.h"
 #include "mex.h"
 
 double initial_rotations_grid[288];

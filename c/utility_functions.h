@@ -1,4 +1,4 @@
-#include "../extern/SFMT-1.5.1/SFMT.h"
+#include "SFMT.h"
 
 void generate_uniformly_random_rotation(double *rotation, sfmt_t *sfmt);
 

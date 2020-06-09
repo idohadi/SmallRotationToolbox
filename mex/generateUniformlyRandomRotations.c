@@ -13,7 +13,7 @@
   */
 
 #include <stdint.h>
-#include "../c/utility_functions.h"
+#include "utility_functions.h"
 #include "mex.h"
 
 sfmt_t sfmt; 
