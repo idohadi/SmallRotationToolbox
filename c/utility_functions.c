@@ -5,7 +5,7 @@
 #include <time.h>
 #include "..\extern\SFMT-1.5.1\SFMT.h"
 #include "utility_functions.h"
-
+ 
 #define PI 3.14159265358979323846
 
 double random_double(sfmt_t *sfmt)
