@@ -50,7 +50,7 @@ void mexFunction(int nlhs, mxArray *plhs[], int nrhs, const mxArray *prhs[])
     {
         initialize_incremental_rotation_grid(initial_rotations_grid);
         first_run = false;
-        mexPrintf("Sequence initialized successfully.");
+        mexPrintf("Sequence initialized successfully.\n");
     }
 
     // Process input
@@ -58,7 +58,7 @@ void mexFunction(int nlhs, mxArray *plhs[], int nrhs, const mxArray *prhs[])
     N = mxGetNumberOfElements(prhs[0]);
 
     // Create the output
-    plhs[0] = mxCreateDoubleMatrix(3, 1, mxREAL);
+    plhs[0] = mxCreateDoubleMatrix(3, N, mxREAL);
     hopf = mxGetDoubles(plhs[0]);
 
     // Generate the rotation
