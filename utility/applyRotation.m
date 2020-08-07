@@ -40,5 +40,7 @@ assert(size(rotation, 1)==4, ...
     'In particular, rotation array must have 4 rows.']);
 
 %% Calling the mex function
-xRot = splitapply(@(r) reshape(applyRotation_mex(r, x), [numel(x), 1]), rotation, 1:size(rotation, 2));
-xRot = reshape(xRot, [3, size(x, 2), size(rotation, 2)]);
+xRot = zeros(3, size(x, 2), size(rotation, 2));
+for J=1:size(rotation, 2)
+    xRot(:, :, J) = applyRotation_mex(rotation(:, J), x);
+end
