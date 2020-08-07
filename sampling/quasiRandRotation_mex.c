@@ -9,10 +9,9 @@
  * 
  * NOTE:
  *  (1) This code performs no input checks.
- *  (2) Due to the convention in C, the sequence index n begin from 0.
- *  (3) This is basically a wrapper function for generate_incremental_rotation_grid_point
+ *  (2) This is basically a wrapper function for generate_incremental_rotation_grid_point
  *      from rotation_grid.c.
- *  (4) This is an implementation of the algorithm of [1]. The main functions are written 
+ *  (3) This is an implementation of the algorithm of [1]. The main functions are written 
  *      in C. The C code is derived from the Authors' C++ code. Their original C++ code is 
  *      available at
 %           https://mitchell-web.ornl.gov/SOI/index.php
@@ -64,6 +63,6 @@ void mexFunction(int nlhs, mxArray *plhs[], int nrhs, const mxArray *prhs[])
     // Generate the rotation
     for (size_t i = 0; i<N; ++i)
     {
-        generate_incremental_rotation_grid_point(n[i], initial_rotations_grid, &hopf[3*i]);
+        generate_incremental_rotation_grid_point(n[i]-1, initial_rotations_grid, &hopf[3*i]);
     }
 }
