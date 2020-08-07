@@ -1,3 +1,5 @@
+# System specific variables
+
 #Compilation variables
 CC=gcc
 MATLABFAGS=-R2018a
