@@ -343,45 +343,45 @@ void generate_incremental_rotation_grid_point_recur(size_t base_grid_index, size
 }
 
 
-void approximate_incremental_rotation_grid_dispersion(size_t sampled_rotations_no, 
-														size_t sequence_lower_bound, 
-														size_t sequence_upper_bound, 
-														double *initial_rotation_grid, 
-														sfmt_t *sfmt, 
-														double *dispersion)
-{
-    /* Given a range of points frmo the incremental sequence, estimate their dispersion. */
-    /* Explanation: given a set of rotations, calculate sampeld_rotations_no unifmrly random rotations and 
-        measure their distance (in the appropriate metric) from rotations from the rotations seqeunce with
-        indices between sequence_lower_bound and sequence_upper_bound. */
-    double sequence_rotation[4]; 
-	double hopf[3];
-    double random_rotation[4];  
-    double current_distance, distance_min, distance_max;
-    distance_max = 0;
+// void approximate_incremental_rotation_grid_dispersion(size_t sampled_rotations_no, 
+// 														size_t sequence_lower_bound, 
+// 														size_t sequence_upper_bound, 
+// 														double *initial_rotation_grid, 
+// 														sfmt_t *sfmt, 
+// 														double *dispersion)
+// {
+//     /* Given a range of points frmo the incremental sequence, estimate their dispersion. */
+//     /* Explanation: given a set of rotations, calculate sampeld_rotations_no unifmrly random rotations and 
+//         measure their distance (in the appropriate metric) from rotations from the rotations seqeunce with
+//         indices between sequence_lower_bound and sequence_upper_bound. */
+//     double sequence_rotation[4]; 
+// 	double hopf[3];
+//     double random_rotation[4];  
+//     double current_distance, distance_min, distance_max;
+//     distance_max = 0;
 
-    for (size_t i = 0; i < sampled_rotations_no; ++i)
-    {
-        distance_min = PI;
-        generate_uniformly_random_rotation(random_rotation, sfmt);
+//     for (size_t i = 0; i < sampled_rotations_no; ++i)
+//     {
+//         distance_min = PI;
+//         generate_uniformly_random_rotation(random_rotation, sfmt);
 
-        for (size_t n = sequence_lower_bound; n <= sequence_upper_bound; ++n)
-        {
-            generate_incremental_rotation_grid_point(n, initial_rotation_grid, hopf);
-            hopf_to_quaternions(hopf, sequence_rotation);
-            calculate_rotation_distance(sequence_rotation, random_rotation, &current_distance);
+//         for (size_t n = sequence_lower_bound; n <= sequence_upper_bound; ++n)
+//         {
+//             generate_incremental_rotation_grid_point(n, initial_rotation_grid, hopf);
+//             hopf_to_quaternions(hopf, sequence_rotation);
+//             calculate_rotation_distance(sequence_rotation, random_rotation, &current_distance);
             
-            if (current_distance < distance_min)
-            {
-                distance_min = current_distance;
-            }
-        }
+//             if (current_distance < distance_min)
+//             {
+//                 distance_min = current_distance;
+//             }
+//         }
 
-        if (distance_min > distance_max)
-        {
-            distance_max = distance_min;
-        }
-    }
+//         if (distance_min > distance_max)
+//         {
+//             distance_max = distance_min;
+//         }
+//     }
 
-    *dispersion = distance_max;
-}
+//     *dispersion = distance_max;
+// }
