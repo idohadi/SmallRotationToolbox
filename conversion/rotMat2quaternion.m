@@ -40,16 +40,11 @@ function quaternion = rotMat2quaternion(rotMat)
 %                               represented by hopf(:, n).
 % 
 % Notes
-%   (1) An expalantion of Hopf representation of rotations and Hopf fibration
-%       in general can be found in [1].
-%   (2) An introduction to quaternions and their use in rotation formalism
-%       can be found in [2].
+%   An introduction to quaternions and their use in rotation formalism can 
+%   be found in [1].
 % 
 % Reference
-%   [1] Lyons, D. W. (2003). An Elementary Introduction to the Hopf 
-%       Fibration. Mathematics Magazine, 76(2), 87–98. 
-%       https://doi.org/10.1080/0025570X.2003.11953158
-%   [2] http://graphics.stanford.edu/courses/cs348a-17-winter/Papers/quaternion.pdf
+%   [1] http://graphics.stanford.edu/courses/cs348a-17-winter/Papers/quaternion.pdf
 % ***********************************************************
 % Author    Ido Hadi
 % Email     idohadi@mail.tau.ac.il
