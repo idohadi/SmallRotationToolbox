@@ -5,9 +5,9 @@ function [theta, phi, rho] = cart2sph2(x, y, z)
 % 
 % Convention
 %   Variable    Interval
-%   theta       [0,pi]
-%   phi         [0,2pi)
-%   rho         [0,infinity)
+%   theta       [0,pi]          
+%   phi         [0,2pi)         
+%   rho         [0,infinity)    
 % 
 % theta, phi, rho satisfy
 %   x(j) = rho*cos(phi)*sin(theta)
@@ -36,4 +36,7 @@ function [theta, phi, rho] = cart2sph2(x, y, z)
 % Year      2020
 % ***********************************************************
 %% Cartesian->Spherical coordiantes
-% TODO
+hypotxy = hypot(x, y);
+rho = hypot(hypotxy, z);
+theta = atan22(z, hypotxy);
+phi = atan22(x, y);

@@ -36,4 +36,6 @@ function [x, y, z] = sph2cart2(theta, phi, rho)
 % Year      2020
 % ***********************************************************
 %% Spherical coordiantes->Cartesian
-% TODO
+x = rho.*cos(phi).*sin(theta);
+y = rho.*sin(phi).*sin(theta);
+z = rho.*cos(theta);
