@@ -27,14 +27,13 @@ function hopf = quaternion2hopf(quaternion)
 % 
 % 
 % Input arguments
-%   quaternion     double       4 x N array, such that quaternion(:, j) is 
-%                               the Hopf coordiantes representation of
-%                               rotation.
+%   quaternion     double       4 x N array, such that quaternion(:, n) is 
+%                               a quaternion representation of a rotation.
 % 
 % Output arguments
-%   hopf           double       3 x N array, such that hopf(:, j) is the 
-%                               Hopf coordiantes representation of
-%                               rotation.
+%   hopf           double       3 x N array, such that hopf(:, n) is the 
+%                               Hopf representation of the rotation 
+%                               represented by quaternion(:, n).
 % 
 % Notes
 %   (1) An expalantion of Hopf representation of rotations and Hopf fibration
