@@ -38,4 +38,8 @@ assert(size(rotation1, 1)==4 && size(rotation2, 1)==4, ...
     'In particular, rotation arrays must have 4 rows.']);
 
 %% Calculate distance
-d = splitapply(@(r) acos(abs(r'*rotation2))', rotation1, 1:size(rotation1, 2))';
+d = zeros(size(rotation1, 2), size(rotation2, 2));
+rotation1 = rotation1';
+for J=1:size(rotation2, 2)
+    d(:, J) = acos(abs(rotation1)*rotation2(:, J));
+end
