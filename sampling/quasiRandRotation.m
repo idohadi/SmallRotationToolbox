@@ -1,7 +1,4 @@
 function rotation = quasiRandRotation(n, varargin)
-% TODO: returns the nth (n>=1) rotation from the rotation grid
-% Can return in quaternion (default) or in hopf 
-% n can be a list 
 %%
 % Return the nth point from a quasi-random, well-dispersed grid on the
 % rotation group SO(3).
