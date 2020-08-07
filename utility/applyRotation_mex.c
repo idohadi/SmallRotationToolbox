@@ -13,6 +13,15 @@
  *  Code performs no input checks.
   */
 
+/**
+ * ***********************************************************
+ * Author    Ido Hadi
+ * Email     idohadi@mail.tau.ac.il
+ * Year      2020
+ * ***********************************************************
+ */
+
+
 #include "mex.h"
 
 

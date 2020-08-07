@@ -16,6 +16,14 @@
  * 
  */
 
+/**
+ * ***********************************************************
+ * Author    Ido Hadi
+ * Email     idohadi@mail.tau.ac.il
+ * Year      2020
+ * ***********************************************************
+ */
+
 void mk_pix2xy(int *pix2x, int *pix2y);
 
 void pix2ang_nest( long nside, long ipix, double *theta, double *phi);
