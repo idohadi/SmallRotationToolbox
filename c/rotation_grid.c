@@ -1,7 +1,7 @@
 // TODO: write all the functions
 
 #include <math.h>
-#include "utility_functions.h"
+// #include "utility_functions.h"
 #include "rotation_grid.h"
 #include "healpix_functions.h"
 #include "SFMT.h"
