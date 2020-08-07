@@ -9,17 +9,6 @@
  
 #define PI 3.14159265358979323846
 
-
-void hopf_to_quaternions(double *hopf, double *quaternion)
-{
-    /* Converts Hopfs coordinates into quaternions. Result is saved in quaternion.
-        Hopf has three elements: theta, phi, psi */
-    quaternion[0] = cos(hopf[0]/2) * cos(hopf[2]/2);
-    quaternion[1] = cos(hopf[0]/2) * sin(hopf[2]/2);
-    quaternion[2] = sin(hopf[0]/2) * cos(hopf[1] + hopf[2]/2);
-    quaternion[3] = sin(hopf[0]/2) * sin(hopf[1] + hopf[2]/2);
-}
-
 void quaternion_to_angleaxis(double *quaternion, double *angleaxis)
 {
     /* Converts the quaternion represntation of a rotation to its angel-axis representation. 
