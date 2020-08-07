@@ -1,7 +1,16 @@
 function P = atan22(X, Y)
 %%
-% Calculates atan2, with the convention that theta in [0,pi] and phi in
-% [0,2pi].
+% Calculates atan2.
+% 
+% Convention
+%   Variable    Interval
+%   P          [0,2pi)
+% 
+% P satisfies
+%   X(j) = r(j)*cos(P(j))
+%   Y(j) = r(j)*sin(P(j))
+% where
+%   r(j) = sqrt(X(j)^2 + Y(j)^2)
 % 
 % Input arguments
 %   X   double      x coordinates of the vector.
