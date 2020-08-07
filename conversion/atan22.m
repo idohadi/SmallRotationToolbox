@@ -23,7 +23,7 @@ function P = atan22(X, Y)
 % Email     idohadi@mail.tau.ac.il
 % Year      2020
 % ***********************************************************
-
+%% Calculate atan2
 P = atan2(Y, X);
 negP = P<0;
 P(negP) = P(negP) + 2*pi;
