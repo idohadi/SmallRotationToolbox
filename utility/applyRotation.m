@@ -36,8 +36,8 @@ if isempty(rotation)
     return;
 end
 assert(size(rotation, 1)==4, ...
-    ['Rotation must be a unit quaternion. ', ...
-    'In particular, it must have 4 rows.']);
+    ['Rotations must be represented in unit quaternions. ', ...
+    'In particular, rotation array must have 4 rows.']);
 
 %% Calling the mex function
 xRot = splitapply(@(r) reshape(applyRotation_mex(r, x), [numel(x), 1]), rotation, 1:size(rotation, 2));
