@@ -68,4 +68,10 @@ assert(size(rotMat, 1)==3 && size(rotMat, 2)==3, ...
     'In particular, rotation array must be 3 x 3 x N dimensional.']);
 
 %% Rotation matrix->qutaernion
-% TODO
+quaternion = zeros(4, size(rotMat, 3));
+for J=1:size(rotMat, 3)
+    quaternion(1, J) = 0.5 * sqrt(1 + rotMat(1, 1, J) + rotMat(2, 2, J) + rotMat(3, 3, J));
+    quaternion(2, J) = 0.25*(rotMat(3, 2, J) - rotMat(2, 3, J))/quaternion(1, J);
+    quaternion(3, J) = 0.25*(rotMat(1, 3, J) - rotMat(3, 1, J))/quaternion(1, J);
+    quaternion(4, J) = 0.25*(rotMat(2, 1, J) - rotMat(1, 2, J))/quaternion(1, J);
+end
