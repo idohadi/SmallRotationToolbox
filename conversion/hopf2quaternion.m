@@ -3,16 +3,21 @@ function quaternion = hopf2quaternion(hopf)
 % Convert rotations from Hopf representation to quaternion representation.
 % 
 % Convention
-%   Variable    Input           Interval
-%   theta       hopf(1, :)      [0,2pi)
-%   phi         hopf(2, :)      [0,pi]
-%   psi         hopf(3, :)      [0,2pi)
+%   hopf is a representation of a rotation. It is a 3-dimensional vector.
+%   Naming its coordinates:
+%       Variable    Input       Interval
+%       theta       hopf(1)     [0,2pi)
+%       phi         hopf(2)     [0,pi]
+%       psi         hopf(3)     [0,2pi)
 % 
-% theta, phi, psi satisfy
-%   quaternion(1, j) = cos(0.5*theta(j)) .* cos(0.5*psi(j))
-%   quaternion(2, j) = cos(0.5*theta(j)) .* sin(0.5*psi(j))
-%   quaternion(3, j) = sin(0.5*theta(j)) .* cos(phi(j) + 0.5*psi(j))
-%   quaternion(4, j) = sin(0.5*theta(j)) .* sin(phi(j) + 0.5*psi(j))
+%   q is a quaternion. 
+%   
+%   theta, phi, psi and q satisfy
+%       q(1) = cos(0.5*theta) * cos(0.5*psi)
+%       q(2) = cos(0.5*theta) * sin(0.5*psi)
+%       q(3) = sin(0.5*theta) * cos(phi + 0.5*psi)
+%       q(4) = sin(0.5*theta) * sin(phi + 0.5*psi)
+% 
 % 
 % Input arguments
 %   hopf           double       3 x N array, such that hopf(:, j) is the 
