@@ -12,6 +12,7 @@ function hopf = quaternion2hopf(quaternion)
 % 
 %   q is a quaternion. 
 %   
+% 
 %   theta, phi, psi and q satisfy
 %       q(1) = cos(0.5*theta) * cos(0.5*psi)
 %       q(2) = cos(0.5*theta) * sin(0.5*psi)
@@ -46,15 +47,27 @@ function hopf = quaternion2hopf(quaternion)
 % ***********************************************************
 %% Input validation
 if isempty(quaternion)
-    quaternion = [];
+    hopf = [];
     warning('The input rotation array is empty.');
     return;
 end
 
-assert(size(rotation, 1)==4, ...
+assert(size(quaternion, 1)==4, ...
     ['Rotations must be represented in quaternion representation. ', ...
     'In particular, rotation array must have 4 rows.']);
 
-%% qutaernion->Convert Hopf
+%% qutaernion->Hopf
+hopf = zeros(3, size(quaternion, 2));
 
-% TODO
+% Finding psi, without normalizing it yet
+hopf(3, :) = atan22(quaternion(1, :), quaternion(2, :));
+
+% Finding phi
+hopf(2, :) = atan22(quaternion(3, :), quaternion(4, :)) - hopf(3, :);
+
+% Normalizing psi
+hopf(3, :) = 2*hopf(3, :);
+
+% Finding theta
+hopf(1, :) = 2*atan22(hypot(quaternion(1, :), quaternion(2, :)), ...
+                        hypot(quaternion(3, :), quaternion(4, :)));
