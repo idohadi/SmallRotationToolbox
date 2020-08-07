@@ -1,10 +1,8 @@
 // TODO: write all the functions
 
 #include <math.h>
-// #include "utility_functions.h"
 #include "rotation_grid.h"
 #include "healpix_functions.h"
-#include "SFMT.h"
 
 #define PI 3.14159265358979323846
 
@@ -125,52 +123,6 @@ void initialize_incremental_rotation_grid(double *initial_rotation_grid)
 				hopf[2] = 330.0*PI/180.0;
 				break;
 		}
-
-        // hopf_to_quaternions(hopf, &initial_rotation_grid[4*i]);
-    }
-}
-
-void initialize_incremental_rotation_grid_quaternion(double *initial_rotation_grid)
-{
-    /* Generates the initial grid points in quaternion representation.
-        initial_rotation_grid is a 4 x initial_rotations_no C array such that
-            initial_rotation_grid [4*i+j] (j=0,1,2,4) is a quaternion representation 
-            of a rotation */
-
-	// Initialize things
-    double *hopf; // Hopfs coordinates, hopf[0] = theta, hopf[1] = phi, hopf[2] = psi
-
-    for (size_t i = 0; i < initial_rotations_no; ++i)
-    {
-		double hopf[3];
-
-        // Calculate theta and phi (the S^2 coordinates) using HEALPix's function
-        pix2ang_nest(1, rotation_grid_initial_ordering[2*i], &hopf[0], &hopf[1]);
-
-        // Calculate psi (the S^1 coordinate)
-        switch(rotation_grid_initial_ordering[2*i+1]) //mapping index on S1 to its angle value
-		{
-			case 0:
-                hopf[2] = 30.0*PI/180.0;
-				break;
-			case 1:
-                hopf[2] = 90.0*PI/180.0;
-				break;
-			case 2: 
-				hopf[2] = 150.0*PI/180.0;
-				break;
-			case 3:
-				hopf[2] = 210.0*PI/180.0;
-				break;
-			case 4: 
-				hopf[2] = 270.0*PI/180.0;
-				break;
-			case 5: 
-				hopf[2] = 330.0*PI/180.0;
-				break;
-		}
-
-        hopf_to_quaternions(hopf, &initial_rotation_grid[4*i]);
     }
 }
 
@@ -221,9 +173,6 @@ void generate_incremental_rotation_grid_point(size_t n, double *initial_rotation
 														4*rotation_grid_initial_ordering[2*base_grid_index], 
                                                         psi_in_degrees, 
 														rotation);
-
-        // // Generate the final output: rotation in quaternion representation
-        // hopf_to_quaternions(hopf, rotation);
     }
 }
 

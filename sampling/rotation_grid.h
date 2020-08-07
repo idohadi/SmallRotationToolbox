@@ -1,6 +1,4 @@
-// TODO: write this h file
 #include <stdint.h>
-// #include "SFMT.h"
 
 // Initial ordering of grid points
 extern const size_t rotation_grid_initial_ordering[144];
