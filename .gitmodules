@@ -1,4 +1,0 @@
-[submodule "extern/SFMT"]
-	path = extern/SFMT
-	url = https://github.com/MersenneTwister-Lab/SFMT
-	branch = master
