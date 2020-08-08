@@ -40,8 +40,10 @@ function rotMat = quaternion2rotMat(quaternion)
 %                               represented by hopf(:, n).
 % 
 % Notes
-%   An introduction to quaternions and their use in rotation formalism can 
-%   be found in [1].
+%   (1) An introduction to quaternions and their use in rotation formalism can 
+%       be found in [1].
+%   (2) This function uses a numerically naive method. It doesn't attempt
+%       to maintain numerical stability.
 % 
 % Reference
 %   [1] http://graphics.stanford.edu/courses/cs348a-17-winter/Papers/quaternion.pdf
@@ -62,4 +64,11 @@ assert(size(quaternion, 1)==4, ...
     'In particular, rotation array must have 4 rows.']);
 
 %% Quaternion->rotation matrix
-% TODO
+rotMat = zeros([3, 3, size(quaternion, 2)]);
+for J=1:size(quaternion, 2)
+    Q = zeros(3, 3);
+    Q([6, 7, 2, 8, 3, 4]) = [quaternion(2:end, J); -quaternion(2:end, J)];
+    rotMat(:, :, J) = (quaternion(1, J)^2 - quaternion(2:end, J)'*quaternion(2:end, J)) * eye(3) ...
+        + 2 * quaternion(2:end, J)*quaternion(2:end, J)' ...
+        + 2 * quaternion(1, J)*Q;
+end
