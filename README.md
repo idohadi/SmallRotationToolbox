@@ -34,7 +34,7 @@ A more detailed, expansive documentation is in the works (***docs***).
 - ***Deterministic.*** The *n*th rotation is completely determined by the first 72 initial rotations and their ordering.
 - ***Quasi-Uniform<sup>1</sup>.*** It behaves roughly like a uniform grid on [-1,1]<sup>3</sup> in that the first *n* points "fill" the rotation group better the larger *n* is.
 
-[1] implemented their method in C++. [Their code][https://mitchell-web.ornl.gov/SOI/index.php] is available online. I rewrote it in C and wrote a MATLAB MEX interface for it.
+[1] implemented their method in C++. [Their code](https://mitchell-web.ornl.gov/SOI/index.php) is available online. I rewrote it in C and wrote a MATLAB MEX interface for it.
 
 ## Notes
 
