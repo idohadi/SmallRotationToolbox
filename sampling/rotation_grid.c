@@ -115,24 +115,28 @@ const size_t rotation_grid_initial_ordering[144]
 const size_t initial_rotations_no = 72;
 
 /* Defining functions */
+/**
+ * Generates the initial grid points in Hopf representation.
+ * 
+ * initial_rotation_grid is a C array of length  3 x 72 such that
+ * 		initial_rotation_grid [3*i+j] (j=0,1,2) 
+ * is a Hopf representation of the (i+1)-th point in the sequence.
+ * 
+ * NOTE: 	Per C's convention, the first index of an array is 0. Therefore, in C's convention, 
+ *  		the initial sequence points corresponds to sequence points 0 to 71 (included).
+ */
 void initialize_incremental_rotation_grid(double *initial_rotation_grid)
 {
-    /* Generates the initial grid points in quaternion representation.
-        initial_rotation_grid is a 4 x initial_rotations_no C array such that
-            initial_rotation_grid [4*i+j] (j=0,1,2,4) is a quaternion representation 
-            of a rotation */
-
-	// Initialize things
-    double *hopf; // Hopfs coordinates, hopf[0] = theta, hopf[1] = phi, hopf[2] = psi
+	double *hopf; // Hopfs coordinates, hopf[0] = theta, hopf[1] = phi, hopf[2] = psi
 
     for (size_t i = 0; i < initial_rotations_no; ++i)
     {
 		hopf = &initial_rotation_grid[3*i];
 
-        // Calculate theta and phi (the S^2 coordinates) using HEALPix's function
+        // Calculate theta and phi (the unit sphere S^2 coordinates) using HEALPix's function
         pix2ang_nest(1, rotation_grid_initial_ordering[2*i], &hopf[0], &hopf[1]);
 
-        // Calculate psi (the S^1 coordinate)
+        // Calculate psi (the unit circle S^1 coordinate in the Hopf representation of a rotation)
         switch(rotation_grid_initial_ordering[2*i+1]) //mapping index on S1 to its angle value
 		{
 			case 0:
@@ -157,10 +161,16 @@ void initialize_incremental_rotation_grid(double *initial_rotation_grid)
     }
 }
 
+
+/**
+ * Generates the sequence point with index n. All in all Hopf coordiantes.
+ * 
+ * NOTE: 	Per C's convention, the first index of an array is 0. Therefore, in C's convention, 
+ *  		the initial sequence points corresponds to sequence points 0 to 71 (included).
+ * 			This function assuems n follows C's convention.
+ */
 void generate_incremental_rotation_grid_point(size_t n, double *initial_rotation_grid, double *rotation)
 {
-    /* Generates the sequence point with index n. All in all Hopf coordiantes.
-    NOTE: First index of sequence is 0. The initial grid corresponds to sequence points 0 to 71 (included). */
     if (n < initial_rotations_no) // If the required point is in the initial rotation grid
     {
         for (size_t i = 0; i < 3; ++i)
@@ -197,7 +207,6 @@ void generate_incremental_rotation_grid_point(size_t n, double *initial_rotation
 		}
 
         // Calculate the new rotation by recursion
-        // double hopf[3]; // Rotation in Hopf coordinates
         generate_incremental_rotation_grid_point_recur(rotation_grid_initial_ordering[2*base_grid_index], 
                                                         (size_t) ((n - initial_rotations_no) / initial_rotations_no), 
                                                         1, 
@@ -207,11 +216,28 @@ void generate_incremental_rotation_grid_point(size_t n, double *initial_rotation
     }
 }
 
-void generate_incremental_rotation_grid_point_recur(size_t base_grid_index, size_t current_index, size_t resolution_level, size_t healpix_point, double psi_in_degrees, double *rotation_in_hopf)
-// My variable names:           (base_grid,         point,          level,              healpix_point,  s1_point) 
-// Jain's variable names:       (base_grid_index,   current_index,  resolution_level,   healpix_point,  psi_in_degrees,     rotation_in_hopf)
+
+/**
+ * This function recursively finds the location of a sequence point of a given index, beyond the 
+ * initial 72 points in the sequence.
+ * 
+ * When I rewrote this function based on [1] code, I changed the variables' names.
+ * For reference, the following table matches the names I chose with the original ones:
+ * 
+ * 		Names in [1] 		My names
+ * 		------------------------------------
+ * 		base_grid 			base_grid_index
+ * 		point 				current_index
+ * 		level				resolution_level
+ * 		healpix_point 		healpix_point
+ * 		s1_point			psi_in_degrees
+ * 		N/A					rotation_in_hopf
+ * 
+ */
+void generate_incremental_rotation_grid_point_recur(size_t base_grid_index, size_t current_index, 
+													size_t resolution_level, size_t healpix_point, 
+													double psi_in_degrees, double *rotation_in_hopf)
 {
-    /* Recursion which produces a rotation grid point (beyond the initla grid) */
     size_t position = current_index % 8;
     double interval = 30/resolution_level;
 
