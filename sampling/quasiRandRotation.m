@@ -1,12 +1,12 @@
 function rotation = quasiRandRotation(n, varargin)
 %%
-% Return the nth point from a quasi-random, well-dispersed grid on the
-% rotation group SO(3).
-% 
 % Call format
 %   rotation = quasiRandRotation(n)
 %   rotation = quasiRandRotation(n, 'quaternion')
 %   rotation = quasiRandRotation(n, 'hopf')
+% 
+% Return the nth point from a quasi-random, well-dispersed grid on the
+% rotation group SO(3).
 % 
 % Input arguments
 %   n                   double          N x 1 or 1 x N array, of integers.

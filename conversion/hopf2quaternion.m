@@ -1,5 +1,8 @@
 function quaternion = hopf2quaternion(hopf)
 %%
+% Call format
+%   quaternion = hopf2quaternion(hopf)
+% 
 % Convert rotations from Hopf representation to quaternion representation.
 % 
 % Convention

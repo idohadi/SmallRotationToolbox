@@ -1,5 +1,8 @@
 function P = atan22(X, Y)
 %%
+% Call format
+%   P = atan22(X, Y)
+% 
 % Calculates atan2.
 % 
 % Convention

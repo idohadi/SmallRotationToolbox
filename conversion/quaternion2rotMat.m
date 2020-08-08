@@ -1,5 +1,8 @@
 function rotMat = quaternion2rotMat(quaternion)
 %%
+% Call format
+%   rotMat = quaternion2rotMat(quaternion)
+% 
 % Convert rotations from quaternion representation to rotation matrix 
 % representation.
 % 

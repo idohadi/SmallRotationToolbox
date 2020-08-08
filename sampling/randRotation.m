@@ -1,5 +1,8 @@
 function rotation = randRotation(N)
 %%
+% Call format
+%   rotation = randRotation(N)
+% 
 % Indepently and uniformly sample N rotations, in quaternion
 % representation.
 % 

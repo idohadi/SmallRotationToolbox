@@ -1,5 +1,8 @@
 function [theta, phi, rho] = cart2sph2(x, y, z)
 %%
+% Call format
+%   [theta, phi, rho] = cart2sph2(x, y, z)
+% 
 % Convert a vector in R^3 from Cartesian coordinates to spherical 
 % coordinates.
 % 

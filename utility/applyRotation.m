@@ -1,5 +1,8 @@
 function xRot = applyRotation(rotation, x)
 %%
+% Call format
+%   xRot = applyRotation(rotation, x)
+% 
 % Apply the rotation to vectors in R^3.
 % 
 % Input arguments

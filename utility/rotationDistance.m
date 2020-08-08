@@ -1,5 +1,8 @@
 function d = rotationDistance(rotation1, rotation2)
 %%
+% Call format
+%   d = rotationDistance(rotation1, rotation2)
+% 
 % Calculate the distance between the given rotations. The rotations are
 % assumed to be represented as unit quaternions with a positive first 
 % element.
