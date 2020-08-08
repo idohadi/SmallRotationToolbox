@@ -7,17 +7,17 @@
  *  where
  *      n>0 is an array of integers, the indices of the rotation grid point.
  * 
- * NOTE:
+ * NOTES:
  *  (1) This code performs no input checks.
  *  (2) This is basically a wrapper function for generate_incremental_rotation_grid_point
  *      from rotation_grid.c.
  *  (3) This is an implementation of the algorithm of [1]. The main functions are written 
  *      in C. The C code is derived from the Authors' C++ code. Their original C++ code is 
- *      available at
-%           https://mitchell-web.ornl.gov/SOI/index.php
-%       under "ISOI_SO3_sequence.tgz".
+ *      available at 
+ *          https://mitchell-web.ornl.gov/SOI/index.php
+ *      under "ISOI_SO3_sequence.tgz".
  * 
- * REFERENCE:
+ * REFERENCES:
  *  [1] Yershova, A., Jain, S., LaValle, S. M., & Mitchell, J. C. (2009). Generating Uniform
  *      Incremental Grids on SO(3) Using the Hopf Fibration. The International Journal of 
  *      Robotics Research, 29(7), 801–812. https://doi.org/10.1177/0278364909352700

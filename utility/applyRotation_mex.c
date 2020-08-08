@@ -9,7 +9,7 @@
  *  rotatedPoints are 3 x N array such that 
  *    rotatedPoints(:, J) = points(:, J) rotated using the rotation represntated by quaternion.
  * 
- * NOTE:
+ * NOTES:
  *  Code performs no input checks.
   */
 
