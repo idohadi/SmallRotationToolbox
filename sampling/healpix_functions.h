@@ -8,8 +8,9 @@
  * NOTES: 
  *  (1) The original code herein was taken from Jain (2009). I merely placed them in the same 
  *      source file and removed code that was commented out.
- *  (2) [1] cites Jain (2009) as a reference to the source code. It is no longer available online. 
- *      My C code is derived from the Authors' C++ code. Their original C++ code is available at
+ *  (2) [1] cites Jain (2009) as a reference to the source code, but Jain (2009) is no longer 
+ *      available online. My C code is derived from the Authors' C++ code. Their original C++ 
+ *      code is available at
  *          https://mitchell-web.ornl.gov/SOI/index.php
  *      under "ISOI_SO3_sequence.tgz".
  * 
