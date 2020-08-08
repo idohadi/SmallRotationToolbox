@@ -37,7 +37,7 @@ function rotMat = quaternion2rotMat(quaternion)
 % Output arguments
 %   quaternion      double      4 x N array, such that quaternion(:, n) is 
 %                               a quaternion representation of the rotation 
-%                               represented by hopf(:, n).
+%                               represented by rotMat(:, :, n).
 % 
 % Notes
 %   (1) An introduction to quaternions and their use in rotation formalism can 

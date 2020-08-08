@@ -8,7 +8,11 @@
 %       Generating Uniform Incremental Grids on SO(3) Using the Hopf 
 %       Fibration. The International Journal of Robotics Research, 29(7), 
 %       801–812. https://doi.org/10.1177/0278364909352700
-
+% ***********************************************************
+% Author    Ido Hadi
+% Email     idohadi@mail.tau.ac.il
+% Year      2020
+% ***********************************************************
 %% A visual representation of the sequence
 % For the first 6 levels of the Display every level in the sequence in a 
 % different color.
