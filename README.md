@@ -4,7 +4,7 @@ This repo is a MATLAB implementation of several functions relating to 3d rotatio
 
 - Uniformly and quasi-uniformly sampling rotations (***sampling***)
 - Converting between several representations of rotations (***conversion***)
-- Applying a rotation to 3d vectors (***utility/applyRotation.m***)
+- Applying a rotation in quaternion representation to 3d vectors (***utility/applyRotation.m***)
 - Measuring distance between rotations (***utility/rotationDistance.m***)
 
 Parts of the code is written in C.
