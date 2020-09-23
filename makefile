@@ -16,5 +16,5 @@ quasiRandRotation_mex :
 
 .PHONY : clean
 clean :
-	rm -f *.mexw64
-	rm -f *.o
+	find . -name "*.mex*" -type f -delete
+	find . -name "*.o" -type f -delete
