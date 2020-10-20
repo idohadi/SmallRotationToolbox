@@ -31,7 +31,7 @@
  */
 
 
-#include <stdint.h>
+#include <stdlib.h>
 
 // Initial ordering of grid points
 extern const size_t rotation_grid_initial_ordering[144];
