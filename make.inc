@@ -5,6 +5,6 @@ CC=gcc
 CFLAGS=-Ofast
 
 #MEX options
-MEX=mex.bat
+MEX=mex
 MEXCFALGS=COMPFLAGS='$$COMPFLAGS -Ofast'
 MATLABFAGS=-R2018a 
